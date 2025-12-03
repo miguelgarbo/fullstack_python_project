@@ -1,0 +1,24 @@
+html,body{
+
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color:rgb(104, 104, 104);
+    margin-top: 10dvh;
+
+}
+
+.whole{
+height: 100%;
+
+
+}
+
+.container-main{
+
+    padding: 50px;
+    height: 50dvh;
+    width: 50dvw;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
