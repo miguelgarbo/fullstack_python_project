@@ -1,0 +1,72 @@
+# =====================
+# Python / FastAPI / Dash
+# =====================
+
+# Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment variables
+.env
+.env.*
+
+# Pytest
+.pytest_cache/
+
+# Cache de ferramentas
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Logs
+*.log
+
+# Coverage
+htmlcov/
+.coverage
+.coverage.*
+
+# Build
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# SQLite databases (caso use para dev)
+*.db
+*.sqlite3
+
+# Alembic migrations autogeradas (opcional)
+migrations/versions/*.pyc
+migrations/versions/__pycache__/
+
+# Dash assets buildados
+assets/*.map
+assets/*.js.map
+
+# Node stuff (caso tenha assets)
+node_modules/
+
+# Front-end builds (caso tenha algo do Dash compilado)
+*.temp
+*.cache
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
+*.swo
