@@ -7,19 +7,22 @@ on:
     branches: [ main ]
 
 jobs:
-  runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-  - name: Install dbdocs
-    run: sudo npm install -g dbdocs
+      - name: Install dbdocs
+        run: sudo npm install -g dbdocs
 
-  - name: Check dbdocs
-    run: dbdocs
+      - name: Check dbdocs
+        run: dbdocs --version
 
-  - name: Update dbdocs project
-    env:
-      DBDOCS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxMzM5LCJ0b2tlbiI6ImE5MGJkMzFhNzVlNmE0MWI4MzQ0NWNmNjQ3NGJjNjhlIiwiaWF0IjoxNzY2NzUyMzcyfQ.L_XfnwRrtwyGmc61XE-txUIlbEYAauek6odfITPk5eE
+      - name: Generate dbml file
+        run: dbdocs db2dbml postgres postgresql+psycopg://postgres:postgres@127.0.0.1:5432/fullstack_app -o ./database.dbml  
 
-    run: dbdocs build ./database.dbml --project fullstack_app_dbdocs
+      - name: Update dbdocs project
+        env:
+          DBDOCS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxMzM5LCJ0b2tlbiI6ImE5MGJkMzFhNzVlNmE0MWI4MzQ0NWNmNjQ3NGJjNjhlIiwiaWF0IjoxNzY2NzUyMzcyfQ.L_XfnwRrtwyGmc61XE-txUIlbEYAauek6odfITPk5eE
+        run: dbdocs build ./database.dbml --project fullstack_app_dbdocs
