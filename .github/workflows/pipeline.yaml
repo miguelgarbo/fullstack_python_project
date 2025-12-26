@@ -21,5 +21,5 @@ jobs:
 
       - name: Update dbdocs project
         env:
-          DBDOCS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxMzM5LCJ0b2tlbiI6ImE5MGJkMzFhNzVlNmE0MWI4MzQ0NWNmNjQ3NGJjNjhlIiwiaWF0IjoxNzY2NzUyMzcyfQ.L_XfnwRrtwyGmc61XE-txUIlbEYAauek6odfITPk5eE
+          DBDOCS_TOKEN: ${{ secrets.DBDOCS_TOKEN }}
         run: dbdocs build database.dbml --project fullstack_app_dbdocs
