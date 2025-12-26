@@ -1,24 +1,31 @@
-html,body{
+html,
+body {
 
     height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
     color: white;
-    background-color:rgb(104, 104, 104);
+    background-color: rgb(17, 17, 17);
     margin-top: 10dvh;
 
 }
 
-.whole{
-height: 100%;
+.whole {
+    height: 100%;
 
 
 }
 
-.container-main{
+.container-main {
 
     padding: 50px;
-    height: 50dvh;
+    height: 60dvh;
     width: 50dvw;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(255, 255, 255, 0.329) 1.95px 1.95px 1.95px 1.95px;
+    margin-bottom: 20px;
+}
+
+#greeting-text{
+
+    color: green;
 }

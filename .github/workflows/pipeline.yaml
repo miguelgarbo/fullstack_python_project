@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v2
+
+  - name: Install dbdocs
+    run: sudo npm install -g dbdocs
+
+  - name: Check dbdocs
+    run: dbdocs
+
+  - name: Update dbdocs project
+    env:
+      DBDOCS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxMzM5LCJ0b2tlbiI6ImE5MGJkMzFhNzVlNmE0MWI4MzQ0NWNmNjQ3NGJjNjhlIiwiaWF0IjoxNzY2NzUyMzcyfQ.L_XfnwRrtwyGmc61XE-txUIlbEYAauek6odfITPk5eE
+
+    run: dbdocs build ./ecommerce.dbml --project Ecommerce
