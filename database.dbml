@@ -1,0 +1,26 @@
+Project project_created_at_web {
+  database_type: 'PostgreSQL'
+
+   note: '''
+   # Test First Project DBDOCS
+   This a documentation first test using this app
+
+   '''
+
+}
+
+Enum "role" {
+  "admin"
+  "user"
+}
+
+Table "users" {
+  "id" int4 [pk, not null, increment]
+  "name" varchar [not null]
+  "password" varchar [not null]
+  "role" role [not null, note: "This Column is related to a enum class which means had constant value, The Roles Are 'admin' and 'user' only"]
+
+  "email" varchar [not null]
+  "created_at" timestamp [not null, default: `now()`]
+   note: "This Table refers to the details that we need in the application"
+}
