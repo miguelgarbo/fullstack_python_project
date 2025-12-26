@@ -17,10 +17,7 @@ jobs:
         run: sudo npm install -g dbdocs
 
       - name: Check dbdocs
-        run: dbdocs --version
-
-      - name: Generate dbml file
-        run: dbdocs db2dbml postgres postgresql+psycopg://postgres:postgres@127.0.0.1:5432/fullstack_app -o database.dbml  
+        run: dbdocs
 
       - name: Update dbdocs project
         env:
