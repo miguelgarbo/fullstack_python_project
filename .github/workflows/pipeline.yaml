@@ -23,4 +23,4 @@ jobs:
     env:
       DBDOCS_TOKEN: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUxMzM5LCJ0b2tlbiI6ImE5MGJkMzFhNzVlNmE0MWI4MzQ0NWNmNjQ3NGJjNjhlIiwiaWF0IjoxNzY2NzUyMzcyfQ.L_XfnwRrtwyGmc61XE-txUIlbEYAauek6odfITPk5eE
 
-    run: dbdocs build ./ecommerce.dbml --project Ecommerce
+    run: dbdocs build ./database.dbml --project fullstack_app_dbdocs
