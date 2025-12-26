@@ -1,14 +1,3 @@
-Project project_created_at_web {
-  database_type: 'PostgreSQL'
-
-   note: '''
-   # Test First Project DBDOCS
-   This a documentation first test using this app
-
-   '''
-
-}
-
 Enum "role" {
   "admin"
   "user"
@@ -18,9 +7,16 @@ Table "users" {
   "id" int4 [pk, not null, increment]
   "name" varchar [not null]
   "password" varchar [not null]
-  "role" role [not null, note: "This Column is related to a enum class which means had constant value, The Roles Are 'admin' and 'user' only"]
-
+  "role" role [not null]
   "email" varchar [not null]
   "created_at" timestamp [not null, default: `now()`]
-   note: "This Table refers to the details that we need in the application"
 }
+
+Table "messages" {
+  "id" int4 [pk, not null, increment]
+  "text" varchar [not null]
+  "user_id" int4 [not null]
+  "created_at" timestamp [not null, default: `now()`]
+}
+
+Ref "messages_user_id_fkey":"users"."id" < "messages"."user_id"
