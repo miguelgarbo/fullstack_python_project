@@ -1,8 +1,8 @@
 from datetime import datetime
 from typing import Optional
 from sqlalchemy.orm import Mapped, mapped_as_dataclass, registry, mapped_column
-from sqlalchemy import func, ForeignKey
-from .schemas import Role
+from sqlalchemy import func, ForeignKey, String, Integer
+from .schemas import Role, Label
 
 table_registry = registry()
 
@@ -11,7 +11,8 @@ table_registry = registry()
 class User:
     __tablename__ = 'users'
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, init=False)
+    id: Mapped[int] = mapped_column(
+        primary_key=True, autoincrement=True, init=False)
     name: Mapped[str]
     password: Mapped[str]
     role: Mapped[Role]
@@ -19,14 +20,39 @@ class User:
     created_at: Mapped[datetime] = mapped_column(
         init=False, server_default=func.now(), nullable=False
     )
-    
+
+
 @table_registry.mapped_as_dataclass
 class Message:
     __tablename__ = 'messages'
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, init=False)
+    id: Mapped[int] = mapped_column(
+        primary_key=True, autoincrement=True, init=False)
     text: Mapped[str]
     user_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
     created_at: Mapped[datetime] = mapped_column(
         init=False, server_default=func.now(), nullable=False
     )
+
+
+@table_registry.mapped_as_dataclass
+class Notification:
+    __tablename__ = 'notifications'
+
+    id: Mapped[int] = mapped_column(
+        primary_key=True, autoincrement=True, init=False)
+    title: Mapped[str] = mapped_column(String(30))
+    text: Mapped[str] = mapped_column(String(200))
+    label: Mapped[Label]
+    receiver_id: Mapped[int] = mapped_column(ForeignKey('users.id'))
+    created_at: Mapped[datetime] = mapped_column(
+        init=False, server_default=func.now(), nullable=False
+    )
+
+
+@table_registry.mapped_as_dataclass
+class Test:
+    __tablename__ = 'test'
+    id: Mapped[int] = mapped_column(
+        primary_key=True, autoincrement=True, init=False)
+    title: Mapped[str] = mapped_column(String(30))

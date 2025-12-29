@@ -1,4 +1,4 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI, Depends
 from routers.user import router as u_router
 from routers.login import router as l_router
 
